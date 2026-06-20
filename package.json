@@ -2,7 +2,7 @@
   "name": "todolist-for-claude-code",
   "displayName": "Todo List for Claude Code",
   "description": "Sidebar todo list backed by a todo.md file. Claude Code auto-adds tasks when you mention them in chat.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "publisher": "meow-at-me",
   "license": "MIT",
   "repository": {
