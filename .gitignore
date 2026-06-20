@@ -1,0 +1,7 @@
+node_modules/
+out/
+*.vsix
+.vscode-test/
+
+# Personal todo data — created at runtime, not part of the source
+todo.md

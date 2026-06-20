@@ -1,0 +1,130 @@
+{
+  "name": "todolist-for-claude-code",
+  "displayName": "Todo List for Claude Code",
+  "description": "Sidebar todo list backed by a todo.md file. Claude Code auto-adds tasks when you mention them in chat.",
+  "version": "0.0.2",
+  "publisher": "meow-at-me",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meow-at-me/todolist-for-claude-code"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "keywords": [
+    "todo",
+    "task",
+    "todo list",
+    "sidebar",
+    "checklist",
+    "claude",
+    "claude code",
+    "ai"
+  ],
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#2188cc",
+    "theme": "dark"
+  },
+  "main": "./out/extension.js",
+  "l10n": "./l10n",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "todolist",
+          "title": "%container.title%",
+          "icon": "media/todo-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "todolist": [
+        {
+          "type": "webview",
+          "id": "todolist.view",
+          "name": "%view.name%"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%config.title%",
+      "properties": {
+        "todolist.colors.high": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%config.colors.high%"
+        },
+        "todolist.colors.med": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%config.colors.med%"
+        },
+        "todolist.colors.low": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%config.colors.low%"
+        },
+        "todolist.colors.doneOpacity": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "%config.colors.doneOpacity%"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "todolist.addTodo",
+        "title": "%cmd.addTodo%",
+        "icon": "$(add)"
+      },
+      {
+        "command": "todolist.refresh",
+        "title": "%cmd.refresh%",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "todolist.openFile",
+        "title": "%cmd.openFile%",
+        "icon": "$(go-to-file)"
+      },
+      {
+        "command": "todolist.setupClaudeCode",
+        "title": "%cmd.setupClaudeCode%"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "todolist.addTodo",
+          "when": "view == todolist.view",
+          "group": "navigation@1"
+        },
+        {
+          "command": "todolist.openFile",
+          "when": "view == todolist.view",
+          "group": "navigation@2"
+        },
+        {
+          "command": "todolist.refresh",
+          "when": "view == todolist.view",
+          "group": "navigation@3"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.4.0"
+  }
+}

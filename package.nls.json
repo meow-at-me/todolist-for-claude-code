@@ -1,0 +1,13 @@
+{
+  "container.title": "Todo",
+  "view.name": "Todo List",
+  "config.title": "Todo List",
+  "config.colors.high": "Accent color for high-priority items (e.g. `#f14c4c`, `red`, `var(--vscode-charts-red)`). Leave empty to use the theme color.",
+  "config.colors.med": "Accent color for medium-priority items. Leave empty to use the theme color.",
+  "config.colors.low": "Accent color for low-priority items. Leave empty to use the theme color.",
+  "config.colors.doneOpacity": "Opacity of completed items (0–1, e.g. `0.5`). Leave empty to use the default (0.55).",
+  "cmd.addTodo": "Todo: Add Todo",
+  "cmd.refresh": "Todo: Refresh",
+  "cmd.openFile": "Todo: Open todo.md",
+  "cmd.setupClaudeCode": "Todo: Set up Claude Code integration"
+}

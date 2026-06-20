@@ -1,0 +1,13 @@
+{
+  "container.title": "Todo",
+  "view.name": "할 일 목록",
+  "config.title": "할 일 목록",
+  "config.colors.high": "높은 우선순위 항목의 강조색 (예: `#f14c4c`, `red`, `var(--vscode-charts-red)`). 비워두면 테마 기본색을 사용합니다.",
+  "config.colors.med": "보통 우선순위 항목의 강조색. 비워두면 테마 기본색을 사용합니다.",
+  "config.colors.low": "낮은 우선순위 항목의 강조색. 비워두면 테마 기본색을 사용합니다.",
+  "config.colors.doneOpacity": "완료된 항목의 불투명도 (0~1, 예: `0.5`). 비워두면 기본값(0.55)을 사용합니다.",
+  "cmd.addTodo": "Todo: 할 일 추가",
+  "cmd.refresh": "Todo: 새로고침",
+  "cmd.openFile": "Todo: todo.md 열기",
+  "cmd.setupClaudeCode": "Todo: Claude Code 연동 설정"
+}
