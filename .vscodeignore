@@ -2,6 +2,7 @@
 .vscode-test/**
 src/**
 scripts/**
+assets/**
 .gitignore
 tsconfig.json
 **/*.map

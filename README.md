@@ -4,12 +4,17 @@ A todo list that lives in your VS Code **sidebar**, backed by a plain `todo.md`
 file in your workspace root — so you can hand-edit it, track it in git, and have
 **Claude Code add tasks for you** when you mention them in chat.
 
+**[GitHub repository](https://github.com/meow-at-me/todolist-for-claude-code)** · [Marketplace](https://marketplace.visualstudio.com/items?itemName=meow-at-me.todolist-for-claude-code)
+
+<img src="assets/before.png" alt="Sidebar todo list" width="380" />
+
 ## Features
 
 - Sidebar (activity bar) webview showing your todo list
 - Add / check off / delete tasks
 - Double-click to edit text, click the tag to set a category
 - Priority levels (high / medium / low) shown as a colored accent bar
+- Sort by manual order, priority, or category; completed items drop below a divider
 - Drag to reorder
 - Auto-refreshes when `todo.md` is edited directly (by you or by Claude Code)
 - **Claude Code integration**: say something like "I need to send an email later"
@@ -41,6 +46,16 @@ to your `~/.claude/CLAUDE.md`. After that, whenever you mention an upcoming task
 while chatting with Claude Code, it appends the task to your workspace's `todo.md`
 and the sidebar updates automatically.
 
+Just mention your tasks in chat:
+
+<img src="assets/usecase.png" alt="Claude Code adding tasks to todo.md" width="820" />
+
+…and they show up in the sidebar instantly:
+
+| Before | After |
+|:---:|:---:|
+| <img src="assets/before.png" alt="Before" width="320" /> | <img src="assets/after.png" alt="After" width="320" /> |
+
 To set it up again later, run **"Todo: Set up Claude Code integration"** from the
 Command Palette.
 
@@ -64,6 +79,9 @@ npm run compile   # or: npm run watch
 
 Open this folder in VS Code and press `F5` to launch the Extension Development
 Host, then click the Todo icon in the activity bar.
+
+The source lives at
+**[github.com/meow-at-me/todolist-for-claude-code](https://github.com/meow-at-me/todolist-for-claude-code)**.
 
 ## License
 
