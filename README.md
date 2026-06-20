@@ -6,6 +6,8 @@ file in your workspace root — so you can hand-edit it, track it in git, and ha
 
 **[GitHub repository](https://github.com/meow-at-me/todolist-for-claude-code)** · [Marketplace](https://marketplace.visualstudio.com/items?itemName=meow-at-me.todolist-for-claude-code)
 
+<img src="assets/usecase.png" alt="Claude Code adding tasks to todo.md" width="820" />
+
 <img src="assets/before.png" alt="Sidebar todo list" width="380" />
 
 ## Features
@@ -46,11 +48,7 @@ to your `~/.claude/CLAUDE.md`. After that, whenever you mention an upcoming task
 while chatting with Claude Code, it appends the task to your workspace's `todo.md`
 and the sidebar updates automatically.
 
-Just mention your tasks in chat:
-
-<img src="assets/usecase.png" alt="Claude Code adding tasks to todo.md" width="820" />
-
-…and they show up in the sidebar instantly:
+Mention your tasks in chat and they show up in the sidebar instantly:
 
 | Before | After |
 |:---:|:---:|
