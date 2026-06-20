@@ -6,9 +6,12 @@ file in your workspace root — so you can hand-edit it, track it in git, and ha
 
 **[GitHub repository](https://github.com/meow-at-me/todolist-for-claude-code)** · [Marketplace](https://marketplace.visualstudio.com/items?itemName=meow-at-me.todolist-for-claude-code)
 
-<img src="assets/usecase.png" alt="Claude Code adding tasks to todo.md" width="820" />
-
-<img src="assets/before.png" alt="Sidebar todo list" width="380" />
+<table>
+  <tr>
+    <td valign="middle"><img src="assets/usecase.png" alt="Claude Code adding tasks to todo.md" width="460" /></td>
+    <td valign="middle"><img src="assets/before.png" alt="Sidebar todo list" width="250" /></td>
+  </tr>
+</table>
 
 ## Features
 
