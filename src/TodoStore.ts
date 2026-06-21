@@ -11,11 +11,20 @@ export interface TodoItem {
 }
 
 const HEADER = '# TODO';
-const PRIORITY_TOKENS: Record<string, Priority> = {
-  '!high': 'high',
-  '!med': 'med',
-  '!low': 'low',
-};
+
+/**
+ * Forgiving priority matchers. Each `body` is the part after the `!`, with
+ * common synonyms and abbreviations so a sloppily-written token still parses:
+ *   high → !high, !hi, !h        med → !med, !medium, !mid, !m
+ *   low  → !low, !lo, !l
+ * The surrounding regex also tolerates `[...]` / `(...)` wrappers, so all of
+ * `!high`, `[!high]`, `(!hi)` resolve to the same priority.
+ */
+const PRIORITY_PATTERNS: Array<{ value: Priority; body: string }> = [
+  { value: 'high', body: 'h(?:igh|i)?' },
+  { value: 'med', body: 'm(?:ed(?:ium)?|id)?' },
+  { value: 'low', body: 'l(?:ow|o)?' },
+];
 
 /**
  * Reads / writes the todo list to `todo.md` at the root of the first workspace
@@ -27,7 +36,9 @@ const PRIORITY_TOKENS: Record<string, Priority> = {
  *   - [x] Code review @dev
  *
  * Line order is the display order. `!high|!med|!low` set the priority and
- * `@word` sets the category; both are optional.
+ * `@word` sets the category; both are optional. Parsing is forgiving: bracket
+ * wrappers (`[@research]`, `[!high]`) and priority synonyms (`!medium`, `!hi`)
+ * are all accepted, and `write()` always re-serializes to the canonical form.
  */
 export class TodoStore {
   /** Uri of the workspace's todo.md, or undefined when no folder is open. */
@@ -79,16 +90,18 @@ export class TodoStore {
       let priority: Priority = 'none';
       let category: string | undefined;
 
-      // Extract @category (first match wins).
-      const catMatch = /(^|\s)@(\S+)/.exec(rest);
+      // Extract @category (first match wins). Tolerates `[@cat]` / `(@cat)`
+      // wrappers; the category itself stops at whitespace or a closing bracket.
+      const catMatch = /(^|\s)[[(]?@([^\s\])]+)[\])]?/.exec(rest);
       if (catMatch) {
         category = catMatch[2];
         rest = rest.replace(catMatch[0], ' ');
       }
 
-      // Extract priority token.
-      for (const [token, value] of Object.entries(PRIORITY_TOKENS)) {
-        const tokenRe = new RegExp(`(^|\\s)${token}(?=\\s|$)`, 'i');
+      // Extract priority token. Tolerates `[!high]` / `(!hi)` wrappers and the
+      // synonyms defined in PRIORITY_PATTERNS.
+      for (const { value, body } of PRIORITY_PATTERNS) {
+        const tokenRe = new RegExp(`(^|\\s)[[(]?!\\s*${body}[\\])]?(?=\\s|$)`, 'i');
         if (tokenRe.test(rest)) {
           priority = value;
           rest = rest.replace(tokenRe, ' ');
